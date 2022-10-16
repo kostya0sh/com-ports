@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import com.comport.comports.view.NumberTextField?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.comport.comports.COMPortsController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <GridPane hgap="10" vgap="10">
+        <Label fx:id="pairLabel1" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <NumberTextField fx:id="pairNumDataBits1" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextArea fx:id="serialPortOutput1" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextArea fx:id="serialPortInput1" GridPane.columnIndex="0" GridPane.rowIndex="3" disable="true" />
+
+        <Label fx:id="pairLabel2" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <NumberTextField fx:id="pairNumDataBits2" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <TextArea fx:id="serialPortInput2" GridPane.columnIndex="1" GridPane.rowIndex="2" disable="true"/>
+        <TextArea fx:id="serialPortOutput2" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    </GridPane>
+</VBox>
