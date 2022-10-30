@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import com.comport.comports.view.NumberTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.TextFlow?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.comport.comports.COMPortsController">
     <padding>
@@ -14,13 +13,17 @@
 
     <GridPane hgap="10" vgap="10">
         <Label fx:id="pairLabel1" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <NumberTextField fx:id="pairNumDataBits1" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-        <TextArea fx:id="serialPortOutput1" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-        <TextArea fx:id="serialPortInput1" GridPane.columnIndex="0" GridPane.rowIndex="3" disable="true" />
+        <TextFlow fx:id="pairLabel12" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <NumberTextField fx:id="pairNumDataBits1" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextArea fx:id="serialPort1Text1" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <TextArea fx:id="serialPort1Text2" GridPane.columnIndex="0" GridPane.rowIndex="4" disable="true" />
+        <Button fx:id="sendButton1" GridPane.columnIndex="0" GridPane.rowIndex="5" text="Send"/>
 
         <Label fx:id="pairLabel2" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-        <NumberTextField fx:id="pairNumDataBits2" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-        <TextArea fx:id="serialPortInput2" GridPane.columnIndex="1" GridPane.rowIndex="2" disable="true"/>
-        <TextArea fx:id="serialPortOutput2" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <TextFlow fx:id="pairLabel22" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <NumberTextField fx:id="pairNumDataBits2" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <TextArea fx:id="serialPort2Text1" GridPane.columnIndex="1" GridPane.rowIndex="3" disable="true"/>
+        <TextArea fx:id="serialPort2Text2" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <Button fx:id="sendButton2" GridPane.columnIndex="1" GridPane.rowIndex="5" text="Send"/>
     </GridPane>
 </VBox>

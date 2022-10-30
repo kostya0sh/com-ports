@@ -1,6 +1,7 @@
 package com.comport.comports.portwrapper;
 
-import com.comport.comports.portwrapper.utils.SerialPortInputStreamListener;
+import com.comport.comports.portwrapper.utils.SerialPortOnDataReceivedListener;
+import com.comport.comports.portwrapper.utils.SerialPortOnDataSendListener;
 import com.fazecast.jSerialComm.SerialPort;
 
 public class SerialPortWrapper {
@@ -9,36 +10,36 @@ public class SerialPortWrapper {
 
     private final SerialPort serialPort;
 
-    private SerialPortInputThread serialPortInputThread;
-    private SerialPortOutputThread serialPortOutputThread;
+    private SerialPortReceiveThread serialPortReceiveThread;
+    private SerialPortSendThread serialPortSendThread;
 
     public SerialPortWrapper(SerialPort serialPort) {
         this.serialPort = serialPort;
-        this.serialPort.setNumDataBits(8);
+        this.serialPort.setNumDataBits(DEFAULT_NUMBER_OF_DATA_BITS);
     }
 
-    public SerialPortOutputThread initOutputThread() {
-        if (serialPortOutputThread == null) {
-            serialPortOutputThread = new SerialPortOutputThread(serialPort);
+    public SerialPortSendThread initSendThread(SerialPortOnDataSendListener onDataSendListener) {
+        if (serialPortSendThread == null) {
+            serialPortSendThread = new SerialPortSendThread(serialPort, onDataSendListener);
         }
 
-        return serialPortOutputThread;
+        return serialPortSendThread;
     }
 
-    public SerialPortInputThread initInputThread(SerialPortInputStreamListener inputListener) {
-        if (serialPortInputThread == null) {
-            serialPortInputThread = new SerialPortInputThread(serialPort, inputListener);
+    public SerialPortReceiveThread initReceiveThread(SerialPortOnDataReceivedListener inputListener) {
+        if (serialPortReceiveThread == null) {
+            serialPortReceiveThread = new SerialPortReceiveThread(serialPort, inputListener);
         }
 
-        return serialPortInputThread;
+        return serialPortReceiveThread;
     }
 
-    public SerialPortInputThread getInputThread() {
-        return serialPortInputThread;
+    public SerialPortReceiveThread getReceiveThread() {
+        return serialPortReceiveThread;
     }
 
-    public SerialPortOutputThread getOutputThread() {
-        return serialPortOutputThread;
+    public SerialPortSendThread getSendThread() {
+        return serialPortSendThread;
     }
 
     public boolean setNumDataBits(int numDataBits) {

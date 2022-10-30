@@ -22,6 +22,6 @@ public class CharInputListener implements ChangeListener<String> {
 
         char diff = newValue.charAt(newValue.length() - 1);
 
-        serialPortWrapper.getOutputThread().send(diff);
+        serialPortWrapper.getSendThread().send(String.valueOf(diff));
     }
 }
